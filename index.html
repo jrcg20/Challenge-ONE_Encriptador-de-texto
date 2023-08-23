@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;400&display=swap" rel="stylesheet">
+    <title>Encriptador de texto</title>
+    <link rel="icon" href="https://play-lh.googleusercontent.com/yDjaHCaOn_O89vnY7eOKH6ElEBtJrmN2CSI4yhiP1_GVC2zrxXWSFGxO0lt9-CU0mV4">
+</head>
+<style>
+  *{
+    font-family: 'Inter';
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 150%;
+    overflow: auto;    
+}
+
+body {
+    margin: 0;
+    background: linear-gradient(to bottom, #356EA9 45%, #F3F5FC);
+}
+
+header h1 {
+    width: auto;
+    height: auto;
+    font-size: 30px;
+    font-weight: 600;
+    color: #ffffff;
+}
+
+header h1 img.logo {
+    margin-left: 20px;
+    height: 50px;
+    width: auto;
+    vertical-align: middle;
+    border-radius: 50%;
+}
+
+main{
+    display: flex;
+    margin-bottom: 10px;
+    margin-left: 50px;
+    
+}
+
+.text-area {
+    background-color: #CED4DA;
+    height: 350px;
+    width: 550px;
+    border-radius: 12px;
+    color: #0a3871;
+    margin-top: 20px;
+    padding: 10px;
+    text-transform: initial;
+    resize: none;
+}
+
+::placeholder { 
+    color: #495057; 
+}
+
+.text-area:focus {
+      outline: none;
+}
+
+header img.git {
+    width: 40px;
+    padding-left: 15px;
+    vertical-align: middle;
+    filter: contrast(0%) brightness(150%) saturate(0%);
+}
+
+header img.lnd {
+    width: 35px;
+    padding-left: 850px;
+    vertical-align: middle;
+    filter: contrast(0%) brightness(150%) saturate(0%);
+}
+
+textarea.mensaje {
+    height: 380px;
+    width: 550px;
+    background: #CED4DA;
+    background-image: url("https://raw.githubusercontent.com/logica-programacion/Solucion-Challenge-encriptador/main/imagenes/Mu%C3%B1eco.png");
+    background-repeat: no-repeat;
+    background-position: top;
+    background-size: 300px;
+    background-position-y: 30px;
+    border-radius: 24px;
+    color: #0A3871;
+    margin-left: 100px;
+    margin-top: 20px;
+    padding: 10px;
+    resize: none;
+}
+
+.mensaje:focus {
+    outline: none;
+}
+
+.botones{
+    display: flex;
+}
+
+.btn-desencriptar {
+    background: #F3F5FC;
+    border: 1px solid #0A3871;
+    border-radius: 24px;
+    color: #0A3871;
+    cursor: pointer;
+    height: 40px;
+    margin-left: 50px;
+    width: 160px;
+}
+
+.btn-encriptar {
+    background-color: #0A3871;
+    border: 1px solid #0A3871;
+    border-radius: 24px;
+    color: white;
+    cursor: pointer;
+    height: 40px;
+    width: 160px;
+    margin-left: 20px;
+}
+
+.copiar {
+    border: 1px solid #0A3871;
+    border-radius: 24px;
+    color: #0A3871;
+    cursor: pointer;
+    height: 40px;
+    margin-left: 310px;
+    margin-top: 30px;
+    width: 160px;
+}
+
+.informacion {
+    color: #343A40;
+    font-size:16px;
+    margin-top: 0px;
+    padding-left: 10px;
+}
+
+footer {
+  background-color: #0A3871;
+  text-align: center;
+  height: 50px;
+  margin-top: 30px;
+}
+footer h1 {
+  background-color: #0A3871;
+  color: white;
+  font-size: 16px;
+  font-weight: 300;
+}
+</style>
+
+<body>
+  <header>
+        <h1>
+            <img class="logo" src="https://play-lh.googleusercontent.com/yDjaHCaOn_O89vnY7eOKH6ElEBtJrmN2CSI4yhiP1_GVC2zrxXWSFGxO0lt9-CU0mV4" alt="Logo alura">
+            Encriptador de texto 
+            <a href="https://www.linkedin.com/in/jrcamposg/" target="_blank"><img class="lnd" src="https://img.freepik.com/iconos-gratis/linkedin_318-183415.jpg" alt="linkedin"></a>
+            <a href="https://github.com/jrcg20" target="_blank"><img class="git" src="https://cdn-icons-png.flaticon.com/512/25/25231.png" alt="github"></a>
+        </h1>
+  </header> 
+
+  <main>
+    <section>
+      <textarea class="text-area" cols="30" rows="10" placeholder="Ingrese el texto aqui..."></textarea>
+            <div>
+                <h6 class="informacion">Solo letras minúsculas y sin acentos.</h6>
+            </div>
+            <div class="botones">
+                <button class="btn-encriptar" onclick="btnEncriptar()">Encriptar</button>
+                <button class="btn-desencriptar" onclick="btnDesencriptar()">Desencriptar</button>
+            </div>
+    </section>
+    <section>
+        <textarea class="mensaje" cols="20" rows="10" readonly>
+            
+            
+            
+            
+            
+            
+            
+            
+               
+            
+                      Ningún mensaje fue encontrado
+     Ingresa el texto que desees encriptar o desencriptar</textarea>
+
+    <div>
+        <button class="copiar" onclick="copiar()">Copiar</button>
+    </div>
+    </section>
+  </main>
+  <script>
+    const textArea = document.querySelector(".text-area");
+const mensaje = document.querySelector(".mensaje");
+const copia = document.querySelector(".copiar");
+copia.style.display = "none";
+
+function validarTexto(){
+    let textoEscrito = document.querySelector(".text-area").value;
+    let validador = textoEscrito.match(/^[a-z]*$/);
+
+    if(!validador || validador === 0) {
+        alert("Solo son permitidas letras minúsculas y sin acentos.")
+        location.reload();
+        return true;
+    }
+}
+
+function btnEncriptar(){
+    if(!validarTexto()) {
+        const textoEncriptado = encriptar(textArea.value)
+        mensaje.value = textoEncriptado
+        mensaje.style.backgroundImage = "none"
+        textArea.value = "";
+        copia.style.display = "block"
+    
+    }
+}
+
+// Llaves de encriptacion
+// La letra "e" es convertida para "enter"
+// La letra "i" es convertida para "imes"
+// La letra "a" es convertida para "ai"
+// La letra "o" es convertida para "ober"
+// La letra "u" es convertida para "ufat"
+
+function encriptar(stringEncriptada){
+    let matrizCodigo = [["e", "enter"], ["i", "imes"], ["a", "ai"], ["o", "ober"], ["u", "ufat"]];
+    stringEncriptada = stringEncriptada.toLowerCase()
+
+    for(let i = 0; i < matrizCodigo.length; i++){
+        if(stringEncriptada.includes(matrizCodigo[i][0])){
+            stringEncriptada = stringEncriptada.replaceAll(matrizCodigo[i][0], matrizCodigo[i][1])
+
+        }
+
+    }
+    return stringEncriptada
+}
+
+function btnDesencriptar(){
+    const textoEncriptado = desencriptar(textArea.value)
+    mensaje.value = textoEncriptado
+    textArea.value = "";
+    
+}
+
+function desencriptar(stringDesencriptada){
+    let matrizCodigo = [["e", "enter"], ["i", "imes"], ["a", "ai"], ["o", "ober"], ["u", "ufat"]];
+    stringDesencriptada = stringDesencriptada.toLowerCase()
+
+    for(let i = 0; i < matrizCodigo.length; i++){
+        if(stringDesencriptada.includes(matrizCodigo[i][1])){
+            stringDesencriptada = stringDesencriptada.replaceAll(matrizCodigo[i][1] , matrizCodigo[i][0])
+
+        }
+
+    }
+    return stringDesencriptada
+}
+
+function copiar(){
+    mensaje.select();
+    navigator.clipboard.writeText(mensaje.value)
+    mensaje.value = "";
+    alert("Texto Copiado")
+}
+  </script>
+  <footer>
+    <h1>Powered by: JOSE RAFAEL CAMPOS GUERRA</h1>
+  </footer>
+</body>
+</html>
